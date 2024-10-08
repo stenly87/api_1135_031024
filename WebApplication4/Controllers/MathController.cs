@@ -32,5 +32,13 @@ namespace WebApplication4.Controllers
                 return NotFound("Не найдено никаких проблем");
             return calculator.Multiply(x, y);
         }
+
+        [HttpPost("НереальноКрутоеИмяСоСложнымАргументом")]
+        public ActionResult<MultiplyResult> Multiply(MultiplyResult arg)
+        {
+            if (arg.X == 0)
+                return NotFound("Не найдено никаких проблем");
+            return calculator.Multiply(arg.X, arg.Y);
+        }
     }
 }
